@@ -1,67 +1,67 @@
-# Portfolio Template
+# Sirjana's MERN portfolio
 
-A self-contained personal portfolio built with plain HTML, CSS, and JavaScript — no build tools, no frameworks, no dependencies. Just open it and go.
+A responsive personal portfolio built with React, Express, and MongoDB. The
+React app presents projects, education, skills, experience, testimonials,
+articles, achievements, and contact information. The Express API validates and
+saves contact form submissions in MongoDB.
 
-## Files
+## Requirements
 
-```
-portfolio/
-├── index.html   → structure & content
-├── style.css    → all styling (design tokens at the top)
-├── script.js    → nav toggle, scroll effects, form validation
-└── README.md    → this file
-```
+- Node.js 18 or later
+- npm
+- MongoDB running locally, or a MongoDB connection URI
 
-## Run it
+## Run locally
 
-**Option A — just open it**
-Double-click `index.html`, or drag it into a browser tab.
+1. Install dependencies:
 
-**Option B — VS Code Live Server (recommended)**
-1. Open the folder in VS Code.
-2. Install the "Live Server" extension if you don't have it.
-3. Right-click `index.html` → "Open with Live Server".
-4. It'll auto-reload as you edit.
-
-## Customize it
-
-1. **Your info** — edit the text directly inside `index.html`:
-   - Name/title: `.hero-title` and the `<title>` tag
-   - Intro panel: `.panel-card` rows (currently, based in, stack, open to)
-   - Projects: each `<li class="project">` block — swap in your real projects, links, and tags
-   - About text, skills bars, experience timeline, contact email/socials
-
-2. **Your photo** — replace the placeholder `.about-frame` div with an `<img>` tag:
-   ```html
-   <div class="about-media">
-     <img src="your-photo.jpg" alt="Your name" class="about-photo">
-   </div>
+   ```sh
+   npm install
    ```
-   Add matching CSS (border-radius, aspect-ratio, object-fit: cover) next to `.about-frame` in `style.css`.
 
-3. **Colors** — everything is driven by CSS custom properties at the top of `style.css`:
-   ```css
-   :root {
-     --bg: #14171C;       /* page background */
-     --accent: #E8A33D;   /* primary accent (buttons, links, index numbers) */
-     --teal: #4FA8A0;     /* secondary accent (project tags) */
-     --paper: #F3EFE6;    /* contact section background */
-     ...
-   }
+2. To enable contact form submissions, copy `.env.example` to `.env` and set
+   `MONGODB_URI` to your MongoDB connection string. The example uses a local
+   MongoDB instance. Without this setting, the portfolio and API still start,
+   but the contact form reports that message storage is unavailable.
+3. Start the frontend and API:
+
+   ```sh
+   npm run dev
    ```
-   Change these and the whole site updates.
 
-4. **Fonts** — headings use "Fraunces" (serif), body text uses "IBM Plex Sans", and small labels use "IBM Plex Mono". Loaded from Google Fonts in the `<head>` of `index.html` — swap the `<link>` tags and the `--font-*` variables in `style.css` to change them.
+4. Open the Vite URL printed in the terminal (normally
+   `http://localhost:5173`).
 
-5. **Contact form** — the form validates on the client side but doesn't send anywhere yet. Open `script.js` and find the comment `// No backend is wired up`. Easiest options:
-   - [Formspree](https://formspree.io) — add `action="https://formspree.io/f/yourFormId"` and `method="POST"` to the `<form>` tag in `index.html`, and you can delete the JS submit handler entirely.
-   - Your own backend — replace the block with a `fetch()` call to your API.
+The frontend proxies `/api` requests to the Express server at
+`http://localhost:5000`. The health check is available at `/api/health`.
+Contact submissions are stored in the `contactmessages` collection. Do not
+commit your `.env` file.
 
-6. **Sections** — to remove a section (e.g. "Experience"), delete its `<section>` block in `index.html` and its corresponding nav link.
+## Production
 
-## Notes
+```sh
+npm run build
+npm start
+```
 
-- Fully responsive down to small mobile screens.
-- Respects `prefers-reduced-motion`.
-- No build step, no `node_modules` — just static files.
-- Google Fonts are loaded over the network, so an internet connection is needed the first time a browser renders the page (fonts are then cached).
+Set `NODE_ENV=production` and `MONGODB_URI` in the server environment. Express
+serves the built React app and API from the same origin.
+
+## Personalize the portfolio
+
+- Update the intro, education, project descriptions, skills, and experience in
+  `client/src/App.jsx`.
+- Replace `client/public/photo.jpeg` with your preferred photo.
+- Add only real, permission-approved testimonials, published article links,
+  verified achievements, and certifications in the matching sections of
+  `client/src/App.jsx`.
+- Replace the contact section prompt with your real email and LinkedIn URL.
+- Project cards in `client/src/App.jsx` link directly to each source
+  repository. Add a `demo` URL to a project to show its live-demo button after
+  deploying that project.
+- Adjust colors, typography, and responsive styles in `style.css`.
+
+The testimonials, articles, and achievements sections intentionally contain
+prompts rather than invented personal details. Contact form messages are saved
+to MongoDB; add appropriate access controls, retention rules, and spam
+protection before using the form publicly.
