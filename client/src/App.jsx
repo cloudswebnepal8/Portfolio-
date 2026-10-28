@@ -3,6 +3,30 @@ import "../../style.css";
 
 const projects = [
   {
+    title: "To-Do List App",
+    role: "Interactive frontend project",
+    description:
+      "A simple task-list experience for writing down tasks and keeping everyday work organized.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    repository: "https://github.com/coderslife108-sirjana/To-Do-List-App-",
+  },
+  {
+    title: "Social Media App",
+    role: "Interactive frontend project",
+    description:
+      "A responsive social feed with an interactive post composer, feed search, likes, and comment forms.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    repository: "https://github.com/coderslife108-sirjana/Social-media-app",
+  },
+  {
+    title: "Frequency Music Player",
+    role: "Full-stack MERN application",
+    description:
+      "A music player with a searchable library, genre filters, playlists, likes, recently played tracks, and playback controls.",
+    tags: ["React", "Vite", "Express", "MongoDB"],
+    repository: "https://github.com/coderslife108-sirjana/music-player",
+  },
+  {
     title: "Bazar Management Portal",
     role: "Full-stack MERN application",
     description:

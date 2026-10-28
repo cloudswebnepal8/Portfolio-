@@ -59,6 +59,8 @@ serves the built React app and API from the same origin.
 - Project cards in `client/src/App.jsx` link directly to each source
   repository. Add a `demo` URL to a project to show its live-demo button after
   deploying that project.
+- The To-Do List and Social Media repositories are currently frontend projects;
+  Frequency is the additional full-stack MERN music player.
 - Adjust colors, typography, and responsive styles in `style.css`.
 
 The testimonials, articles, and achievements sections intentionally contain
