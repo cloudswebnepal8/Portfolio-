@@ -3,63 +3,82 @@ import "../../style.css";
 
 const projects = [
   {
-    title: "To-Do List App",
-    role: "Interactive frontend project",
-    description:
-      "A simple task-list experience for writing down tasks and keeping everyday work organized.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    repository: "https://github.com/coderslife108-sirjana/To-Do-List-App-",
-  },
-  {
-    title: "Social Media App",
-    role: "Interactive frontend project",
-    description:
-      "A responsive social feed with an interactive post composer, feed search, likes, and comment forms.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    repository: "https://github.com/coderslife108-sirjana/Social-media-app",
-  },
-  {
-    title: "Frequency Music Player",
-    role: "Full-stack MERN application",
-    description:
-      "A music player with a searchable library, genre filters, playlists, likes, recently played tracks, and playback controls.",
-    tags: ["React", "Vite", "Express", "MongoDB"],
-    repository: "https://github.com/coderslife108-sirjana/music-player",
-  },
-  {
-    title: "Bazar Management Portal",
-    role: "Full-stack MERN application",
-    description:
-      "A community portal for managing members, notices, and private messages, with role-based access for administrators, notice managers, and members.",
-    tags: ["React", "Express", "MongoDB", "Role-based access"],
-    repository:
-      "https://github.com/coderslife108-sirjana/Bazar-Byabasthapan-Samiti",
-  },
-  {
-    title: "Book Store",
-    role: "Full-stack web application",
-    description:
-      "An online bookstore with a React frontend and a dedicated backend, bringing book discovery and store functionality together.",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    repository: "https://github.com/coderslife108-sirjana/book-store",
-  },
-  {
     title: "Brew & Flour",
+    theme: "brew",
+    mark: "B&F",
+    image:
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85",
     role: "Full-stack café website",
     description:
       "A café website with menu and gallery content, plus backend-powered reservations, contact messages, and newsletter signups.",
     tags: ["React", "Vite", "Node.js", "Express"],
+    demo: "https://brew-and-flour-full-stack.vercel.app/",
     repository:
-      "https://github.com/coderslife108-sirjana/brew-and-flour-full-stack",
+      "https://music-player-theta-sand.vercel.app/",
+  },
+  {
+    title: "Online Bookstore",
+    theme: "books",
+    mark: "BOOKS",
+    image:
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900&q=85",
+    role: "Full-stack web application",
+    description:
+      "An online bookstore with a React frontend and a dedicated backend, bringing book discovery and store functionality together.",
+    tags: ["React", "Node.js", "Express", "MongoDB"],
+    demo: "https://book-store-six-kappa-89.vercel.app/",
+    repository: "https://github.com/coderslife108-sirjana/book-store",
+  },
+  {
+    title: "ABC Academy",
+    theme: "academy",
+    mark: "ABC",
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=85",
+    role: "Education website project",
+    description:
+      "A website concept for ABC Academy, presenting the academy and its learning experience in a clear, accessible format.",
+    tags: ["Education", "Web design", "Responsive website"],
+    repository: "https://github.com/coderslife108-sirjana/abc-academy",
   },
   {
     title: "Job Platform Management",
+    theme: "jobs",
+    mark: "JOBS",
+    image:
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&q=85",
     role: "Full-stack job platform",
     description:
       "A job platform built with a separate React frontend and backend, bringing together application workflows and management tools.",
     tags: ["React", "Redux", "Express", "MongoDB"],
+    demo: "https://job-platform-management.vercel.app/",
     repository:
       "https://github.com/coderslife108-sirjana/Job-platform-management",
+  },
+  {
+    title: "Music Player",
+    theme: "music",
+    mark: "PLAY",
+    image:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85",
+    role: "Full-stack MERN application",
+    description:
+      "A music player with a searchable library, genre filters, playlists, likes, recently played tracks, and playback controls.",
+    tags: ["React", "Vite", "Express", "MongoDB"],
+    demo: "https://music-player-theta-sand.vercel.app/",
+    repository: "https://github.com/coderslife108-sirjana/music-player",
+  },
+  {
+    title: "Gym",
+    theme: "gym",
+    mark: "GYM",
+    image:
+      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&q=85",
+    role: "Fitness website",
+    description:
+      "A website for a gym, presenting its fitness brand and services in a polished online experience.",
+    tags: ["Fitness", "Web design", "Responsive website"],
+    demo: "https://gym-alpha-pink-16.vercel.app/",
   },
 ];
 
@@ -110,7 +129,7 @@ const timeline = [
     period: "2024 — 2025",
     title: "MERN project development",
     description:
-      "Built web projects including a movie website, online bookstore, school website, and coffee shop site using MERN stack concepts.",
+      "Built projects including Brew & Flour, an online bookstore, ABC Academy, Job Platform Management, and a music player using MERN stack concepts.",
   },
 ];
 
@@ -238,8 +257,11 @@ function App() {
       <div className="grain" />
       <header className="site-header" id="top">
         <div className="header-inner">
-          <a href="#top" className="mark" aria-label="Sirjana, back to top">
-            S<span className="mark-dot">.</span>
+          <a href="#top" className="brand" aria-label="Sirjana, back to top">
+            <span className="mark" aria-hidden="true">
+              S<span className="mark-dot">.</span>
+            </span>
+            <span className="brand-name">Sirjana</span>
           </a>
           <nav
             className={`main-nav${menuOpen ? " open" : ""}`}
@@ -250,7 +272,6 @@ function App() {
               ["about", "About"],
               ["skills", "Skills"],
               ["experience", "Journey"],
-              ["testimonials", "More"],
               ["contact", "Contact"],
             ].map(([id, label]) => (
               <a
@@ -283,11 +304,13 @@ function App() {
       <main>
         <section className="hero">
           <div className="hero-inner">
-            <p className="hero-eyebrow">BSc.CSIT student · Kathmandu, Nepal</p>
+            <p className="hero-eyebrow">
+              BSc.CSIT · Full-stack development · Kathmandu, Nepal
+            </p>
             <h1 className="hero-title">
-              Sirjana builds
+              I build
               <br />
-              meaningful web
+              <span>thoughtful digital</span>
               <br />
               experiences.
             </h1>
@@ -325,11 +348,11 @@ function App() {
         <section className="trust-strip" aria-label="Key strengths">
           <p>Building</p>
           <ul>
-            <li>MERN projects</li>
-            <li>Full-stack web apps</li>
-            <li>Community platforms</li>
-            <li>Book store</li>
-            <li>Café experience</li>
+            <li>Brew & Flour</li>
+            <li>Online bookstore</li>
+            <li>ABC Academy</li>
+            <li>Job Platform Management</li>
+            <li>Music player</li>
           </ul>
         </section>
 
@@ -341,12 +364,22 @@ function App() {
           <ol className="project-list">
             {projects.map((project, index) => (
               <li className="project" key={project.title}>
-                <div className="project-preview" aria-hidden="true">
+                <div
+                  className={`project-preview project-preview-${project.theme} has-image`}
+                  aria-hidden="true"
+                >
+                  <img
+                    className="project-preview-image"
+                    src={project.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="project-index">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="project-preview-label">Featured project</span>
-                  <span className="project-preview-mark">S.</span>
+                  <span className="project-preview-label">Selected work</span>
+                  <span className="project-preview-mark">{project.mark}</span>
                 </div>
                 <div className="project-body">
                   <h3>{project.title}</h3>
@@ -369,15 +402,17 @@ function App() {
                       Live demo <span aria-hidden="true">↗</span>
                     </a>
                   )}
-                  <a
-                    className="project-button"
-                    href={project.repository}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`View ${project.title} source code on GitHub`}
-                  >
-                    View source <span aria-hidden="true">↗</span>
-                  </a>
+                  {project.repository && (
+                    <a
+                      className="project-button"
+                      href={project.repository}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`View ${project.title} source code on GitHub`}
+                    >
+                      View source <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
                 </div>
               </li>
             ))}
@@ -416,8 +451,8 @@ function App() {
 
         <section className="background-section">
           <SectionHead
-            title="Education & certifications"
-            description="My academic background and professional learning."
+            title="Education"
+            description="The academic foundation behind my work."
           />
           <div className="content-cards">
             <article className="info-card">
@@ -427,14 +462,6 @@ function App() {
                 Computer Science and Information Technology · Kathmandu, Nepal
               </p>
               <span>2022 — Present</span>
-            </article>
-            <article className="info-card">
-              <p className="card-kicker">Certifications</p>
-              <h3>Add certifications</h3>
-              <p>
-                No certifications have been provided yet. Add verified
-                credentials here when ready.
-              </p>
             </article>
           </div>
         </section>
@@ -481,36 +508,6 @@ function App() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section className="content-section" id="testimonials">
-          <SectionHead
-            title="Testimonials"
-            description="Endorsements from people I’ve studied or worked with."
-          />
-          <div className="empty-state">
-            Add a genuine endorsement here, with the speaker’s permission.
-          </div>
-        </section>
-
-        <section className="content-section" id="writing">
-          <SectionHead
-            title="Blog & articles"
-            description="Notes, tutorials, and ideas about technology and learning."
-          />
-          <div className="empty-state">
-            Published articles will be linked here.
-          </div>
-        </section>
-
-        <section className="content-section" id="achievements">
-          <SectionHead
-            title="Achievements"
-            description="Awards, honors, and milestones worth celebrating."
-          />
-          <div className="empty-state">
-            Add verified awards and achievements here.
-          </div>
         </section>
 
         <section className="contact" id="contact">
@@ -575,9 +572,14 @@ function App() {
               </p>
             </form>
             <div className="contact-direct">
-              <span className="contact-placeholder">
-                Add your email address and LinkedIn profile here.
-              </span>
+              <span>Prefer GitHub?</span>
+              <a
+                href="https://github.com/coderslife108-sirjana"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit my profile <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </section>
