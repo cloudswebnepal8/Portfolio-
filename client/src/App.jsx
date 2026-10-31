@@ -65,7 +65,7 @@ const projects = [
     description:
       "A music player with a searchable library, genre filters, playlists, likes, recently played tracks, and playback controls.",
     tags: ["React", "Vite", "Express", "MongoDB"],
-    demo: "https://music-player-theta-sand.vercel.app/",
+    demo: "https://music-player-udlc-2s6fvakds-coders-sirjana.vercel.app/",
     repository: "https://github.com/coderslife108-sirjana/music-player",
   },
   {
