@@ -17,9 +17,10 @@ app.get("/api/health", (_request, response) => {
 });
 
 app.post("/api/contact", async (request, response, next) => {
-  const { name, email, message } = request.body ?? {};
+  const { name, email, subject, message } = request.body ?? {};
   const normalizedName = typeof name === "string" ? name.trim() : "";
   const normalizedEmail = typeof email === "string" ? email.trim() : "";
+  const normalizedSubject = typeof subject === "string" ? subject.trim() : "";
   const normalizedMessage = typeof message === "string" ? message.trim() : "";
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -28,11 +29,13 @@ app.post("/api/contact", async (request, response, next) => {
     normalizedName.length > 100 ||
     !emailPattern.test(normalizedEmail) ||
     normalizedEmail.length > 254 ||
+    normalizedSubject.length < 3 ||
+    normalizedSubject.length > 120 ||
     normalizedMessage.length < 10 ||
     normalizedMessage.length > 5000
   ) {
     return response.status(400).json({
-      message: "Enter a valid name, email address, and message.",
+      message: "Enter a valid name, email address, subject, and message.",
     });
   }
 
@@ -46,6 +49,7 @@ app.post("/api/contact", async (request, response, next) => {
     await ContactMessage.create({
       name: normalizedName,
       email: normalizedEmail,
+      subject: normalizedSubject,
       message: normalizedMessage,
     });
     return response.status(201).json({ message: "Message received." });
@@ -59,7 +63,7 @@ app.use("/api", (_request, response) => {
 });
 
 if (process.env.NODE_ENV === "production") {
-  const clientDist = path.resolve(rootDir, "../client/dist");
+  const clientDist = path.resolve(rootDir, "../dist");
   app.use(express.static(clientDist));
   app.use((_request, response) => {
     response.sendFile(path.join(clientDist, "index.html"));

@@ -22,7 +22,7 @@ saves contact form submissions in MongoDB.
 2. To enable contact form submissions, copy `.env.example` to `.env` and set
    `MONGODB_URI` to your MongoDB connection string. The example uses a local
    MongoDB instance. Without this setting, the portfolio and API still start,
-   but the contact form reports that message storage is unavailable.
+   but submissions return a message that the service is unavailable.
 3. Start the frontend and API:
 
    ```sh
@@ -49,21 +49,18 @@ serves the built React app and API from the same origin.
 
 ## Personalize the portfolio
 
-- Update the intro, education, project descriptions, skills, and experience in
-  `client/src/App.jsx`.
+- Update the intro in `client/src/Hero.jsx`, project descriptions and links in
+  `client/src/Projects.jsx`, and the about, skills, and experience content in
+  their matching files under `client/src/`.
 - Replace `client/public/photo.jpeg` with your preferred photo.
-- Add only real, permission-approved testimonials, published article links,
-  verified achievements, and certifications in the matching sections of
-  `client/src/App.jsx`.
-- Replace the contact section prompt with your real email and LinkedIn URL.
-- Project cards in `client/src/App.jsx` link directly to each source
-  repository. Add a `demo` URL to a project to show its live-demo button after
-  deploying that project.
+- Contact form messages are saved to MongoDB. Configure the database before
+  expecting submissions to succeed.
+- Project cards link to their live demos and source repositories when those
+  URLs are configured in `client/src/Projects.jsx`.
 - The To-Do List and Social Media repositories are currently frontend projects;
   Frequency is the additional full-stack MERN music player.
-- Adjust colors, typography, and responsive styles in `style.css`.
+- Tailwind CSS is configured through `@tailwindcss/vite`; shared base styles
+  live in `client/src/index.css`, and component styling uses Tailwind classes.
 
-The testimonials, articles, and achievements sections intentionally contain
-prompts rather than invented personal details. Contact form messages are saved
-to MongoDB; add appropriate access controls, retention rules, and spam
-protection before using the form publicly.
+Add appropriate access controls, retention rules, and spam protection before
+using the contact form publicly.
